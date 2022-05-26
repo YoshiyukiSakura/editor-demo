@@ -6,7 +6,8 @@
     "dev": "next dev -p 8000",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next export"
   },
   "dependencies": {
     "@osn/rich-text-editor": "file:.yalc/@osn/rich-text-editor",
