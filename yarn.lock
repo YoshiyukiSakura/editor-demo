@@ -302,10 +302,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@osn/rich-text-editor@0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@osn/rich-text-editor/-/rich-text-editor-0.1.7.tgz#3d6dd7949a9d861048ce7080e2f8520b71a782e2"
-  integrity sha512-dAK/SRp1rBp/Uo/3KQBeKUmGFGRjX+hlNipiG6NtIGI2QJiMX1tfbXpmxopP/q6SN6idmh/CtAeA2Qik2pexCA==
+"@osn/rich-text-editor@0.1.9":
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/@osn/rich-text-editor/-/rich-text-editor-0.1.9.tgz#66debd109df98331653f8a00096f507a2cb98c4f"
+  integrity sha512-+Qc9wXKJ3+qsrgahDgBu/m3R85Bfls/lTEY34aj0aIlZFjTIhQiEVRHCg+Vnz0deoTUhcsv7gk39hWRCZmTFPQ==
   dependencies:
     github-markdown-css "^5.1.0"
     marked "^4.0.15"
