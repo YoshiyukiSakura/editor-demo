@@ -37,6 +37,7 @@ export default function Home() {
   const [content, setContent] = useState(markdown);
   return (
     <div>
+      <span>SSR</span>
       <Editor value={content} onChange={(value)=>{setContent(value)}}/>
     </div>
   )
