@@ -10,7 +10,8 @@
     "export": "next export"
   },
   "dependencies": {
-    "@osn/rich-text-editor": "0.1.12",
+    "quill": "^2.0.0-dev.4",
+    "@osn/rich-text-editor": "file:.yalc/@osn/rich-text-editor",
     "next": "12.1.6",
     "react": "17.0.2",
     "react-dom": "17.0.2",
