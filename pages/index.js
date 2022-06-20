@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic'
 const Editor = dynamic(() => import("@osn/rich-text-editor"),{ssr:false})
-const WYSIWYG = dynamic(() => import("@osn/rich-text-editor").then(mod=> mod.WYSIWYG),{ssr:false})
+const UniverseEditor = dynamic(() => import("@osn/rich-text-editor").then(mod=> mod.UniverseEditor),{ssr:false})
 import React, { useState } from "react";
 
 const markdown = `
@@ -37,8 +37,8 @@ export default function Home() {
   const [content, setContent] = useState(markdown);
   return (
     <div style={{maxWidth:"90%", margin:"auto"}}>
-      <h1>Quill core  (Under development)</h1>
-      <WYSIWYG/>
+      <h1>Universe Editor (for subSquare mainly)</h1>
+      <UniverseEditor/>
       <h1>Based on React-MDE</h1>
       <Editor value={content} onChange={(value)=>{setContent(value)}}/>
     </div>
