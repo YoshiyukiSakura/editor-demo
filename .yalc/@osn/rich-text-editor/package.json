@@ -1,6 +1,6 @@
 {
   "name": "@osn/rich-text-editor",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "OpenSquare Team React Markdown Editor",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -11,7 +11,8 @@
     "lint": "pretty-quick",
     "tsc": "tsc",
     "build": "rollup -c",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -32,18 +33,18 @@
   },
   "homepage": "https://github.com/opensquare-network/rich-text-editor.git#readme",
   "dependencies": {
+    "@types/lodash": "^4.14.182",
     "@types/quill": "2",
     "github-markdown-css": "^5.1.0",
+    "lodash": "^4.17.21",
     "marked": "^4.0.15",
     "prismjs": "^1.28.0",
     "quill": "^2.0.0-dev.4",
-    "quill-image-resize-module": "^3.0.0",
-    "quill-mention": "^3.1.0",
     "sanitize-html": "^2.7.0"
   },
   "peerDependencies": {
     "react": "^17.0.2",
     "styled-components": "^5.3.1"
   },
-  "yalcSig": "204499b390c23ca82e389b279df16b40"
+  "yalcSig": "511f24c8380e4f332a870395136cf894"
 }
