@@ -33,14 +33,32 @@ echo "hello"
 > quote text
 `.trim();
 
+const suggestions = [
+  {
+    preview: <span>abc</span>,
+    value: "abc"
+  },
+  {
+    preview: <span>edf</span>,
+    value: "edf"
+  }
+];
+
 export default function Home() {
   const [content, setContent] = useState(markdown);
+
+  const loadSuggestions = (text) => {
+    return suggestions.filter(i =>
+      i.value.toLowerCase().includes(text.toLowerCase())
+    );
+  };
+
   return (
     <div style={{maxWidth:"90%", margin:"auto"}}>
       <h1>Universe Editor (for subSquare mainly)</h1>
       <UniverseEditor/>
       <h1>Based on React-MDE</h1>
-      <Editor value={content} onChange={(value)=>{setContent(value)}}/>
+      <Editor value={content} onChange={(value)=>{setContent(value)}} loadSuggestions={loadSuggestions}/>
     </div>
   )
 }
