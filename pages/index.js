@@ -36,11 +36,13 @@ echo "hello"
 const suggestions = [
   {
     preview: <span>abc</span>,
-    value: "[@abd](abc-polkadot) "
+    value: "[@abd](abc-polkadot) ",
+    forSearch:"abc",
   },
   {
     preview: <span>edf</span>,
-    value: "[@def](def-kusama) "
+    value: "[@def](def-kusama) " ,
+    forSearch:"def",
   }
 ];
 
@@ -49,7 +51,7 @@ export default function Home() {
 
   const loadSuggestions = (text) => {
     return suggestions.filter(i =>
-      i.value.toLowerCase().includes(text.toLowerCase())
+      i.forSearch.toLowerCase().includes(text.toLowerCase())
     );
   };
 
