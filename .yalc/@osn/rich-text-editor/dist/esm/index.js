@@ -1226,6 +1226,8 @@ var Editor = function (_a) {
             textarea.style.height = minHeight + "px";
             textarea.style.height = textarea.scrollHeight + "px";
             setHeight(textarea.scrollHeight);
+            textarea.blur();
+            textarea.focus();
         }
     };
     useEffect(function () {
