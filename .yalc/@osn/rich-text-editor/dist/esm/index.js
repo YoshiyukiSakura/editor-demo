@@ -1105,7 +1105,7 @@ function getCaretCoordinates(element, append) {
 function getHandlers(_a) {
     var ref = _a.ref, loadSuggestions = _a.loadSuggestions, setFocusIndex = _a.setFocusIndex, focusIndex = _a.focusIndex, setCaret = _a.setCaret, suggestions = _a.suggestions, setSuggestions = _a.setSuggestions, mentionState = _a.mentionState, setMentionState = _a.setMentionState, value = _a.value;
     var handleSuggestionSelected = function (index) {
-        if (loadSuggestions) {
+        if (suggestions === null || suggestions === void 0 ? void 0 : suggestions.length) {
             ref.current.setSelectionRange(mentionState.startPosition - 1, ref.current.selectionStart);
             insertText(ref === null || ref === void 0 ? void 0 : ref.current, suggestions[index].value);
             setMentionState(__assign(__assign({}, mentionState), { status: "inactive" }));
@@ -1275,8 +1275,12 @@ var Editor = function (_a) {
         value: value
     }), handleSuggestionSelected = _l.handleSuggestionSelected, handleKeyDown = _l.handleKeyDown, handleKeyPress = _l.handleKeyPress, handleKeyUp = _l.handleKeyUp;
     var isEditingText = React.useMemo(function () {
-        return mentionState.status !== "active";
-    }, [mentionState.status]);
+        var v = mentionState.status !== "active";
+        if (!suggestions.length) {
+            v = true;
+        }
+        return v;
+    }, [mentionState.status, suggestions]);
     var onEnterNewLine = function (e) {
         if (e.key === "Enter") {
             e.preventDefault();
