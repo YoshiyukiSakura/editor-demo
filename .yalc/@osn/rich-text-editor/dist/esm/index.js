@@ -741,8 +741,8 @@ var SuggestionsDropdown = function (_a) {
     var handleMouseDown = function (event) { return event.preventDefault(); };
     var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     var vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-    var left = caret.left - ((_c = (_b = textAreaRef === null || textAreaRef === void 0 ? void 0 : textAreaRef.current) === null || _b === void 0 ? void 0 : _b.scrollLeft) !== null && _c !== void 0 ? _c : 0) + 20;
-    var top = caret.top - ((_e = (_d = textAreaRef === null || textAreaRef === void 0 ? void 0 : textAreaRef.current) === null || _d === void 0 ? void 0 : _d.scrollTop) !== null && _e !== void 0 ? _e : 0) + 50;
+    var left = caret.left - ((_c = (_b = textAreaRef === null || textAreaRef === void 0 ? void 0 : textAreaRef.current) === null || _b === void 0 ? void 0 : _b.scrollLeft) !== null && _c !== void 0 ? _c : 0) + 30;
+    var top = caret.top - ((_e = (_d = textAreaRef === null || textAreaRef === void 0 ? void 0 : textAreaRef.current) === null || _d === void 0 ? void 0 : _d.scrollTop) !== null && _e !== void 0 ? _e : 0) + 60;
     var style = {};
     if (suggestionsAutoplace &&
         top + ((_h = (_g = (_f = textAreaRef === null || textAreaRef === void 0 ? void 0 : textAreaRef.current) === null || _f === void 0 ? void 0 : _f.getBoundingClientRect()) === null || _g === void 0 ? void 0 : _g.top) !== null && _h !== void 0 ? _h : 0) > vh / 2)
@@ -758,30 +758,30 @@ var SuggestionsDropdown = function (_a) {
 };
 var templateObject_1$1;
 
-var EditorWrapper = styled.div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  display: flex;\n  flex-wrap: wrap;\n  border-top: 1px solid #e2e8f0;\n  border-bottom: 1px solid #e2e8f0;\n  ", "\n"], ["\n  display: flex;\n  flex-wrap: wrap;\n  border-top: 1px solid #e2e8f0;\n  border-bottom: 1px solid #e2e8f0;\n  ",
+var EditorWrapper = styled.div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n  flex-wrap: wrap;\n  border-top: 1px solid #e2e8f0;\n  border-bottom: 1px solid #e2e8f0;\n  ", "\n"], ["\n  position: relative;\n  display: flex;\n  flex-wrap: wrap;\n  border-top: 1px solid #e2e8f0;\n  border-bottom: 1px solid #e2e8f0;\n  ",
     "\n"])), function (p) {
-    return p.disabled && css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n      pointer-events: none;\n            cursor: not-allowed;\n    "], ["\n      pointer-events: none;\n            cursor: not-allowed;\n    "])));
+    return p.disabled && css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n      pointer-events: none;\n      cursor: not-allowed;\n    "], ["\n      pointer-events: none;\n      cursor: not-allowed;\n    "])));
 });
 var ToolBar = styled.div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  flex-basis: 100%;\n  padding-left: 16px;\n  padding-right: 16px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  /* mobile */\n  @media screen and (max-width: 769px) {\n    display: block;\n    padding-left: 0;\n    padding-right: 0;\n  }\n"], ["\n  flex-basis: 100%;\n  padding-left: 16px;\n  padding-right: 16px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  /* mobile */\n  @media screen and (max-width: 769px) {\n    display: block;\n    padding-left: 0;\n    padding-right: 0;\n  }\n"])));
-var TabsWrapper = styled.div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: flex;\n  gap: 24px;\n  height: 48px;\n  /* mobile */\n  @media screen and (max-width: 769px) {\n    border-bottom: 1px solid #E2E8F0;\n  }\n"], ["\n  display: flex;\n  gap: 24px;\n  height: 48px;\n  /* mobile */\n  @media screen and (max-width: 769px) {\n    border-bottom: 1px solid #E2E8F0;\n  }\n"])));
+var TabsWrapper = styled.div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: flex;\n  gap: 24px;\n  height: 48px;\n  /* mobile */\n  @media screen and (max-width: 769px) {\n    border-bottom: 1px solid #e2e8f0;\n  }\n"], ["\n  display: flex;\n  gap: 24px;\n  height: 48px;\n  /* mobile */\n  @media screen and (max-width: 769px) {\n    border-bottom: 1px solid #e2e8f0;\n  }\n"])));
 var Tab = styled.button(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  all: unset;\n  font-weight: 500;\n  font-size: 14px;\n  line-height: 24px;\n  border-bottom: 3px solid #ffffff;\n  ", ";\n  cursor: pointer;\n  /* mobile */\n  @media screen and (max-width: 769px) {\n    margin-left: 16px;\n    margin-right: 16px;\n    width: 50%;\n    text-align: center;\n  }\n"], ["\n  all: unset;\n  font-weight: 500;\n  font-size: 14px;\n  line-height: 24px;\n  border-bottom: 3px solid #ffffff;\n  ",
     ";\n  cursor: pointer;\n  /* mobile */\n  @media screen and (max-width: 769px) {\n    margin-left: 16px;\n    margin-right: 16px;\n    width: 50%;\n    text-align: center;\n  }\n"])), function (props) {
-    return props.active && css(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n            border-bottom: 3px solid #04d2c5;\n          "], ["\n            border-bottom: 3px solid #04d2c5;\n          "])));
+    return props.active && css(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n      border-bottom: 3px solid #04d2c5;\n    "], ["\n      border-bottom: 3px solid #04d2c5;\n    "])));
 });
 var ToolbarItemsWrapper = styled.div(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  ", ";\n  /* mobile */\n  @media screen and (max-width: 769px) {\n    height: 48px;\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  ",
     ";\n  /* mobile */\n  @media screen and (max-width: 769px) {\n    height: 48px;\n  }\n"])), function (props) {
-    return props.hide && css(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n            display: none;\n          "], ["\n            display: none;\n          "])));
+    return props.hide && css(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n      display: none;\n    "], ["\n      display: none;\n    "])));
 });
 var ToolbarButton = styled.button(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n  all: unset;\n  cursor: pointer;\n  width: 24px;\n  height: 24px;\n\n  &:hover svg path {\n    fill: #1e2134;\n  }\n"], ["\n  all: unset;\n  cursor: pointer;\n  width: 24px;\n  height: 24px;\n\n  &:hover svg path {\n    fill: #1e2134;\n  }\n"])));
-var Textarea = styled.textarea(templateObject_13 || (templateObject_13 = __makeTemplateObject(["\n  box-sizing: border-box;\n  width: 100%;\n  min-height: 144px;\n  ", " ;\n  ", " ;\n  ", ";\n  max-height: 672px;\n  resize: vertical;\n  border: none;\n  outline: none;\n  font-size: 14px;\n  line-height: 24px;\n  padding: 12px;\n  background: #fbfcfe;\n  font-family: Inter, sans-serif;\n\n  ::selection {\n    background-color: #E2E8F0;\n  }\n"], ["\n  box-sizing: border-box;\n  width: 100%;\n  min-height: 144px;\n  ",
-    " ;\n  ",
-    " ;\n  ",
-    ";\n  max-height: 672px;\n  resize: vertical;\n  border: none;\n  outline: none;\n  font-size: 14px;\n  line-height: 24px;\n  padding: 12px;\n  background: #fbfcfe;\n  font-family: Inter, sans-serif;\n\n  ::selection {\n    background-color: #E2E8F0;\n  }\n"])), function (props) {
-    return props.minHeight && css(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n            min-height: ", "px;\n          "], ["\n            min-height: ", "px;\n          "])), props.minHeight);
+var Textarea = styled.textarea(templateObject_13 || (templateObject_13 = __makeTemplateObject(["\n  box-sizing: border-box;\n  width: 100%;\n  min-height: 144px;\n  ", ";\n  ", ";\n  ", ";\n  max-height: 672px;\n  resize: vertical;\n  border: none;\n  outline: none;\n  font-size: 14px;\n  line-height: 24px;\n  padding: 12px;\n  background: #fbfcfe;\n  font-family: Inter, sans-serif;\n\n  ::selection {\n    background-color: #e2e8f0;\n  }\n"], ["\n  box-sizing: border-box;\n  width: 100%;\n  min-height: 144px;\n  ",
+    ";\n  ",
+    ";\n  ",
+    ";\n  max-height: 672px;\n  resize: vertical;\n  border: none;\n  outline: none;\n  font-size: 14px;\n  line-height: 24px;\n  padding: 12px;\n  background: #fbfcfe;\n  font-family: Inter, sans-serif;\n\n  ::selection {\n    background-color: #e2e8f0;\n  }\n"])), function (props) {
+    return props.minHeight && css(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n      min-height: ", "px;\n    "], ["\n      min-height: ", "px;\n    "])), props.minHeight);
 }, function (props) {
-    return props.height && css(templateObject_11 || (templateObject_11 = __makeTemplateObject(["\n            height: ", "px;\n          "], ["\n            height: ", "px;\n          "])), props.height);
+    return props.height && css(templateObject_11 || (templateObject_11 = __makeTemplateObject(["\n      height: ", "px;\n    "], ["\n      height: ", "px;\n    "])), props.height);
 }, function (props) {
-    return props.hide && css(templateObject_12 || (templateObject_12 = __makeTemplateObject(["\n            display: none;\n          "], ["\n            display: none;\n          "])));
+    return props.hide && css(templateObject_12 || (templateObject_12 = __makeTemplateObject(["\n      display: none;\n    "], ["\n      display: none;\n    "])));
 });
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11, templateObject_12, templateObject_13;
 
