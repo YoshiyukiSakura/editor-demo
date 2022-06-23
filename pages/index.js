@@ -36,11 +36,11 @@ echo "hello"
 const suggestions = [
   {
     preview: <span>abc</span>,
-    value: "[abd](abc-polkadot) "
+    value: "[@abd](abc-polkadot) "
   },
   {
     preview: <span>edf</span>,
-    value: "[def](def-kusama) "
+    value: "[@def](def-kusama) "
   }
 ];
 
