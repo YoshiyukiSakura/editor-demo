@@ -40,7 +40,7 @@ const suggestions = [
     forSearch:"abc",
   },
   {
-    preview: <span>edf</span>,
+    preview: <span>def</span>,
     value: "[@def](def-kusama) " ,
     forSearch:"def",
   }
