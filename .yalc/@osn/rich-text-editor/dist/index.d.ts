@@ -9,7 +9,14 @@ interface EditorProps {
 }
 declare function WYSIWYG(props: EditorProps): JSX.Element;
 
-declare type DemoProps$1 = {};
+declare type DemoProps$1 = {
+    value: string;
+    onChange: (value: string) => void;
+    suggestions?: Suggestion[];
+    minHeight?: number;
+    loadSuggestions?: (text: string) => Suggestion[];
+    disabled?: boolean;
+};
 declare const UniverseEditor: React.FunctionComponent<DemoProps$1>;
 
 interface Suggestion {
