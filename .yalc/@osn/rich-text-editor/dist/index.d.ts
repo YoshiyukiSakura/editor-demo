@@ -1,4 +1,16 @@
 import * as React from 'react';
+import { BoundsStatic } from 'quill';
+
+interface EditorProps {
+    value?: string;
+    onChange?: (value: string) => void;
+    mentions?: any[];
+    setModalInsetFunc: (func: (bounds: BoundsStatic, type: string) => void) => void;
+}
+declare function WYSIWYG(props: EditorProps): JSX.Element;
+
+declare type DemoProps$1 = {};
+declare const UniverseEditor: React.FunctionComponent<DemoProps$1>;
 
 interface Suggestion {
     preview: React.ReactNode;
@@ -7,8 +19,10 @@ interface Suggestion {
 declare type DemoProps = {
     value: string;
     onChange: (value: string) => void;
-    loadSuggestions?: (text: string) => Suggestion[];
+    suggestions?: Suggestion[];
     minHeight?: number;
+    theme?: "opensquare" | "subsquare";
+    loadSuggestions?: (text: string) => Suggestion[];
     disabled?: boolean;
 };
 interface CaretCoordinates {
@@ -32,4 +46,4 @@ interface MentionState {
 }
 declare const Editor: React.FunctionComponent<DemoProps>;
 
-export { CaretCoordinates, DemoProps, Editor, MentionState, Suggestion, Editor as default };
+export { CaretCoordinates, DemoProps, Editor, MentionState, Suggestion, UniverseEditor, WYSIWYG, Editor as default };

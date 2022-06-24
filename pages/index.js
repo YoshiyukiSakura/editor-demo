@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic'
-const Editor = dynamic(() => import("@osn/rich-text-editor"),{ssr:false})
 const UniverseEditor = dynamic(() => import("@osn/rich-text-editor").then(mod=> mod.UniverseEditor),{ssr:false})
 import React, { useState } from "react";
 
@@ -59,8 +58,6 @@ export default function Home() {
     <div style={{maxWidth:"90%", margin:"auto"}}>
       <h1>Universe Editor (for subSquare mainly)</h1>
       <UniverseEditor/>
-      <h1>Based on React-MDE</h1>
-      <Editor value={content} onChange={(value)=>{setContent(value)}} loadSuggestions={loadSuggestions}/>
     </div>
   )
 }
