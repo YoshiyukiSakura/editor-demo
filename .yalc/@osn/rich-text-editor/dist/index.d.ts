@@ -5,14 +5,14 @@ interface EditorProps {
     value?: string;
     onChange?: (value: string) => void;
     mentions?: any[];
-    setModalInsetFunc: (func: (bounds: BoundsStatic, type: string) => void) => void;
+    setModalInsetFunc: (func: (bounds: BoundsStatic) => void, type: string) => void;
+    loadSuggestions?: (text: string) => Suggestion[];
 }
 declare function WYSIWYG(props: EditorProps): JSX.Element;
 
 declare type DemoProps$1 = {
     value: string;
     onChange: (value: string) => void;
-    suggestions?: Suggestion[];
     minHeight?: number;
     loadSuggestions?: (text: string) => Suggestion[];
     disabled?: boolean;
@@ -26,7 +26,6 @@ interface Suggestion {
 declare type DemoProps = {
     value: string;
     onChange: (value: string) => void;
-    suggestions?: Suggestion[];
     minHeight?: number;
     theme?: "opensquare" | "subsquare";
     loadSuggestions?: (text: string) => Suggestion[];
