@@ -58,7 +58,7 @@ export default function Home() {
   return (
     <div style={{maxWidth:"90%", margin:"auto"}}>
       <h1>Universe Editor (for subSquare mainly)</h1>
-      <UniverseEditor/>
+      <UniverseEditor  loadSuggestions={loadSuggestions}/>
       <br/>
       <Editor value={content} onChange={(value)=>{setContent(value)}} loadSuggestions={loadSuggestions}/>
     </div>
