@@ -902,8 +902,8 @@ const SuggestionsDropdown = ({ suggestions, caret, onSuggestionSelected, suggest
     };
     const handleMouseDown = (event) => event.preventDefault();
     const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-    const left = caret.left - ((_b = (_a = textAreaRef === null || textAreaRef === void 0 ? void 0 : textAreaRef.current) === null || _a === void 0 ? void 0 : _a.scrollLeft) !== null && _b !== void 0 ? _b : 0) + 30;
-    const top = caret.top - ((_d = (_c = textAreaRef === null || textAreaRef === void 0 ? void 0 : textAreaRef.current) === null || _c === void 0 ? void 0 : _c.scrollTop) !== null && _d !== void 0 ? _d : 0) + 60;
+    const left = caret.left - ((_b = (_a = textAreaRef === null || textAreaRef === void 0 ? void 0 : textAreaRef.current) === null || _a === void 0 ? void 0 : _a.scrollLeft) !== null && _b !== void 0 ? _b : 0) + 20;
+    const top = caret.top - ((_d = (_c = textAreaRef === null || textAreaRef === void 0 ? void 0 : textAreaRef.current) === null || _c === void 0 ? void 0 : _c.scrollTop) !== null && _d !== void 0 ? _d : 0) + 45;
     const style = {};
     style.top = top;
     if (suggestionsAutoplace &&
@@ -911,7 +911,7 @@ const SuggestionsDropdown = ({ suggestions, caret, onSuggestionSelected, suggest
         style.right = ((_j = (_h = textAreaRef === null || textAreaRef === void 0 ? void 0 : textAreaRef.current) === null || _h === void 0 ? void 0 : _h.offsetWidth) !== null && _j !== void 0 ? _j : 0) - left;
     else
         style.left = left;
-    return (React__namespace.createElement(SuggestionsWrapper, { style: style }, suggestions.slice(0, max).map((s, i) => (React__namespace.createElement("li", { onClick: handleSuggestionClick, onMouseDown: handleMouseDown, key: i, "aria-selected": focusIndex === i ? "true" : "false", "data-index": `${i}` }, s.preview)))));
+    return (React__namespace.createElement(SuggestionsWrapper, { className: "mention-list", style: style }, suggestions.slice(0, max).map((s, i) => (React__namespace.createElement("li", { onClick: handleSuggestionClick, onMouseDown: handleMouseDown, key: i, "aria-selected": focusIndex === i ? "true" : "false", "data-index": `${i}` }, s.preview)))));
 };
 
 const EditorWrapper = styled__default["default"].div `
@@ -1389,19 +1389,13 @@ var quillStyle = styled.css `
   border-radius: 4px;
 
   ul.ql-mention-list {
-    margin-left: 40px;
+    margin-top: 0px;
+    margin-left: 20px;
     padding: 0;
     padding-top: 8px;
     padding-bottom: 8px;
     box-shadow: 0px 4px 31px rgb(26 33 44 / 6%),
       0px 0.751293px 8px rgb(26 33 44 / 4%);
-  }
-
-  ul.ql-mention-list li {
-    all: unset;
-    display: block;
-    min-width: 180px;
-    line-height: 36px;
   }
 
   .ql-mention-list-container {
@@ -1414,11 +1408,15 @@ var quillStyle = styled.css `
     }
 
     .ql-mention-list-item {
-      font-style: normal;
-      font-weight: normal;
+      all: unset;
+      display: block;
+      padding: 10px 12px;
+      min-width: 180px;
       font-size: 14px;
-      line-height: 36px;
-      padding: 0 12px;
+      line-height: 20px;
+      font-style: normal;
+      font-weight: 500;
+      color: #506176;
     }
   }
 
@@ -2312,7 +2310,7 @@ var quillStyle = styled.css `
   }
 
   .ql-color-picker .ql-picker-options {
-    padding: 3px 5px;
+    padding: 3 px 5px;
     width: 152px;
   }
 
@@ -4356,16 +4354,6 @@ echo "hello"
 \`\`\`
 > quote text
 `.trim();
-[
-    {
-        preview: React__namespace.createElement("span", null, "abc"),
-        value: "abc"
-    },
-    {
-        preview: React__namespace.createElement("span", null, "edf"),
-        value: "edf"
-    }
-];
 const ToggleWrapper = styled__default["default"].div `
   display: flex;
   justify-content: end;
@@ -4423,6 +4411,13 @@ const OpenSquare = {
 const SubSquare = {
     wrapper: styled.css `
     border: none;
+    .mention-list {
+      font-size: 14px;
+      line-height: 20px;
+      li {
+        padding: 10px 12px;
+      }
+    }
   `,
     toolbar: styled.css `
     justify-content: end;
