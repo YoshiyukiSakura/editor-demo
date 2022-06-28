@@ -1440,7 +1440,13 @@ var quillStyle = styled.css `
   .ql-toolbar {
     padding-left: 210px;
     @media screen and (max-width: 769px) {
+      flex: 1;
+      overflow-x: scroll;
       border-top: 1px solid #e0e4eb;
+      justify-content: flex-start !important;
+      ::-webkit-scrollbar {
+        display: none;
+      }
       ${props => props.isPreview &&
     styled.css `
           display: none !important;
