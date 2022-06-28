@@ -902,13 +902,17 @@ const ToolBar = styled.div `
   justify-content: space-between;
   align-items: center;
   box-sizing: content-box;
-  ${props => props.theme.toolbar};
   /* mobile */
   @media screen and (max-width: 769px) {
     display: block;
     padding-left: 0;
     padding-right: 0;
+    ${props => props.isPreview &&
+    css `
+        padding-top: 0 !important;
+      `};
   }
+  ${props => props.theme.toolbar};
 `;
 const TabsWrapper = styled.div `
   display: flex;
@@ -917,6 +921,7 @@ const TabsWrapper = styled.div `
   /* mobile */
   @media screen and (max-width: 769px) {
     border-bottom: 1px solid #e2e8f0;
+    width: 100%;
   }
   ${props => props.theme.tabs};
 `;
@@ -944,6 +949,7 @@ const Tab = styled.button `
     margin-right: 16px;
     width: 50%;
     text-align: center;
+    ${props => props.theme.tabMobile};
   }
 `;
 const ToolbarItemsWrapper = styled.div `
@@ -1056,7 +1062,7 @@ function Code () {
 }
 
 function EditorHeader({ theme, editStatus, setEditStatus, isPreview, commandController }) {
-    return React.createElement(ToolBar, { theme: theme },
+    return (React.createElement(ToolBar, { theme: theme, isPreview: isPreview },
         React.createElement(TabsWrapper, { theme: theme },
             React.createElement(Tab, { active: editStatus === "write", onClick: () => setEditStatus("write"), theme: theme }, "Write"),
             React.createElement(Tab, { active: editStatus === "preview", onClick: () => setEditStatus("preview"), theme: theme }, "Preview")),
@@ -1092,7 +1098,7 @@ function EditorHeader({ theme, editStatus, setEditStatus, isPreview, commandCont
             React.createElement(ToolbarButton, { onClick: () => __awaiter(this, void 0, void 0, function* () {
                     yield commandController.executeCommand("code");
                 }) },
-                React.createElement(Code, null))));
+                React.createElement(Code, null)))));
 }
 
 function insertText(input, text) {
@@ -1401,6 +1407,13 @@ var quillStyle = css `
 
   .ql-toolbar {
     padding-left: 210px;
+    @media screen and (max-width: 769px) {
+      border-top: 1px solid #e0e4eb;
+      ${props => props.isPreview &&
+    css `
+          display: none !important;
+        `};
+    }
   }
 
   /*!
@@ -2631,7 +2644,7 @@ const StateToggle = styled.div `
     font-weight: 500;
     cursor: pointer;
     //border-radius: 4px;
-    color: #9DA9BB;
+    color: #9da9bb;
     //border: 1px solid #E0E4EB;
     border-top: none;
   }
@@ -2639,14 +2652,23 @@ const StateToggle = styled.div `
   button.active {
     background-color: #ffffff;
     box-shadow: 0 1px 0 0 white;
-    color: #1E2134;
+    color: #1e2134;
     :hover {
-      color: #1E2134;
+      color: #1e2134;
     }
   }
 
   button:hover {
     color: #506176;
+  }
+
+  @media screen and (max-width: 769px) {
+    position: initial;
+    button {
+      flex-basis: 50%;
+      text-align: center;
+      background-color: #f6f7fa;
+    }
   }
 `;
 
@@ -4333,7 +4355,7 @@ const ToggleWrapper = styled.div `
 `;
 const UniverseEditor = ({ loadSuggestions }) => {
     const [content, setContent] = useState(markdown);
-    const [contentType, setContentType] = useState("markdown");
+    const [contentType, setContentType] = useState("html");
     const [htmlContent, setHtmlContent] = useState(`<p>　</p>`);
     const [showModal, setShowModal] = useState(false);
     const [modalType, setModalType] = useState("image");
@@ -4399,10 +4421,15 @@ const SubSquare = {
       gap: 0;
       height: 40px;
     }
+    @media screen and (max-width: 769px) {
+      padding-top: 40px;
+      padding-left: 16px;
+    }
   `,
     tabs: css `
     position: absolute;
     left: 0;
+    top: 0;
   `,
     tab: css `
     padding: 12px;
@@ -4431,6 +4458,10 @@ const SubSquare = {
     :hover {
       color: #1e2134;
     }
+  `,
+    tabMobile: css `
+    margin-left: 0;
+    margin-right: 0;
   `,
     textarea: css `
     background-color: white;

@@ -2,7 +2,7 @@
   "version": "v1",
   "packages": {
     "@osn/rich-text-editor": {
-      "signature": "045116924a26fe4d7ed1fc393e47d71b",
+      "signature": "7a406485aeded0b7208e16649c75ac42",
       "file": true,
       "replaced": "0.1.12"
     }

@@ -934,13 +934,17 @@ const ToolBar = styled__default["default"].div `
   justify-content: space-between;
   align-items: center;
   box-sizing: content-box;
-  ${props => props.theme.toolbar};
   /* mobile */
   @media screen and (max-width: 769px) {
     display: block;
     padding-left: 0;
     padding-right: 0;
+    ${props => props.isPreview &&
+    styled.css `
+        padding-top: 0 !important;
+      `};
   }
+  ${props => props.theme.toolbar};
 `;
 const TabsWrapper = styled__default["default"].div `
   display: flex;
@@ -949,6 +953,7 @@ const TabsWrapper = styled__default["default"].div `
   /* mobile */
   @media screen and (max-width: 769px) {
     border-bottom: 1px solid #e2e8f0;
+    width: 100%;
   }
   ${props => props.theme.tabs};
 `;
@@ -976,6 +981,7 @@ const Tab = styled__default["default"].button `
     margin-right: 16px;
     width: 50%;
     text-align: center;
+    ${props => props.theme.tabMobile};
   }
 `;
 const ToolbarItemsWrapper = styled__default["default"].div `
@@ -1088,7 +1094,7 @@ function Code () {
 }
 
 function EditorHeader({ theme, editStatus, setEditStatus, isPreview, commandController }) {
-    return React__namespace.createElement(ToolBar, { theme: theme },
+    return (React__namespace.createElement(ToolBar, { theme: theme, isPreview: isPreview },
         React__namespace.createElement(TabsWrapper, { theme: theme },
             React__namespace.createElement(Tab, { active: editStatus === "write", onClick: () => setEditStatus("write"), theme: theme }, "Write"),
             React__namespace.createElement(Tab, { active: editStatus === "preview", onClick: () => setEditStatus("preview"), theme: theme }, "Preview")),
@@ -1124,7 +1130,7 @@ function EditorHeader({ theme, editStatus, setEditStatus, isPreview, commandCont
             React__namespace.createElement(ToolbarButton, { onClick: () => __awaiter(this, void 0, void 0, function* () {
                     yield commandController.executeCommand("code");
                 }) },
-                React__namespace.createElement(Code, null))));
+                React__namespace.createElement(Code, null)))));
 }
 
 function insertText(input, text) {
@@ -1433,6 +1439,13 @@ var quillStyle = styled.css `
 
   .ql-toolbar {
     padding-left: 210px;
+    @media screen and (max-width: 769px) {
+      border-top: 1px solid #e0e4eb;
+      ${props => props.isPreview &&
+    styled.css `
+          display: none !important;
+        `};
+    }
   }
 
   /*!
@@ -2663,7 +2676,7 @@ const StateToggle = styled__default["default"].div `
     font-weight: 500;
     cursor: pointer;
     //border-radius: 4px;
-    color: #9DA9BB;
+    color: #9da9bb;
     //border: 1px solid #E0E4EB;
     border-top: none;
   }
@@ -2671,14 +2684,23 @@ const StateToggle = styled__default["default"].div `
   button.active {
     background-color: #ffffff;
     box-shadow: 0 1px 0 0 white;
-    color: #1E2134;
+    color: #1e2134;
     :hover {
-      color: #1E2134;
+      color: #1e2134;
     }
   }
 
   button:hover {
     color: #506176;
+  }
+
+  @media screen and (max-width: 769px) {
+    position: initial;
+    button {
+      flex-basis: 50%;
+      text-align: center;
+      background-color: #f6f7fa;
+    }
   }
 `;
 
@@ -4365,7 +4387,7 @@ const ToggleWrapper = styled__default["default"].div `
 `;
 const UniverseEditor = ({ loadSuggestions }) => {
     const [content, setContent] = React.useState(markdown);
-    const [contentType, setContentType] = React.useState("markdown");
+    const [contentType, setContentType] = React.useState("html");
     const [htmlContent, setHtmlContent] = React.useState(`<p>　</p>`);
     const [showModal, setShowModal] = React.useState(false);
     const [modalType, setModalType] = React.useState("image");
@@ -4431,10 +4453,15 @@ const SubSquare = {
       gap: 0;
       height: 40px;
     }
+    @media screen and (max-width: 769px) {
+      padding-top: 40px;
+      padding-left: 16px;
+    }
   `,
     tabs: styled.css `
     position: absolute;
     left: 0;
+    top: 0;
   `,
     tab: styled.css `
     padding: 12px;
@@ -4463,6 +4490,10 @@ const SubSquare = {
     :hover {
       color: #1e2134;
     }
+  `,
+    tabMobile: styled.css `
+    margin-left: 0;
+    margin-right: 0;
   `,
     textarea: styled.css `
     background-color: white;
